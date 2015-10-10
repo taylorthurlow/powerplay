@@ -36,7 +36,7 @@
 
 				<div class="room-list">
 					<div id="rooms-output" style="height: 100px">
-						placeholder
+
 					</div>
 				</div>
 
@@ -48,19 +48,18 @@
 				</div>
 			</div>
 
+			<button id="test">test</button>
+
 		</div>
 
 		<script type="text/javascript">
-			$(document).ready(function(){
-				$('#rooms-output').html("<div class='col-md-6 stacked'><a href='#' class='btn btn-primary center-block'>" + "<p>lolol</p>" + "</a></div>");
+			$("#test").click(function() {
 				$.ajax({
-					url: 'api.php',
-					type: 'POST',
-					data: {nick: nickname},
+					url: "api.php",
+					async: true,
 					dataType: 'text',
 					success: function(data) {
-						alert(data);
-						$('#rooms-output').html("<div class='col-md-6 stacked'><a href='#' class='btn btn-primary center-block'>" + "<p>HELLO WORLD</p>" + "</a></div>");
+						document.write(data);
 					}
 				});
 			});

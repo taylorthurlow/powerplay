@@ -1,20 +1,29 @@
 <?php
-	$con = mysqli_connect("127.0.0.1", "tsk", "asswipe#####", "powerplay");
-	if(mysqli_connect_errno($con)) {
-		error.log("Failed to connect to MySQL database. Please contact a network admin. " . mysqli_connect_error());
+
+	// Initializing connection data.
+	$host_db = '127.0.0.1';
+	$name_db = 'powerplay';
+	$user_db = 'tsk';
+	$pass_db = 'asswipe#####';
+
+	try {
+		// Connecting using the PDO object.
+		$connection = new PDO("mysql:host=$host_db; dbname=$name_db", $user_db, $pass_db);
+
+		// Setting the query and runnin it...
+		$sql = "SELECT * FROM `rooms`";
+		$result = $connection->query($sql);
+
+		// Iterating over the data and printing it.
+		foreach($result as $row) {
+		  echo $row['id']. ' - '. $row['nickname']. ' - '. $row['owner']. '<br />';
+		}
+		// Closing the connection.
+		$connection = null;
 	}
-	session_start();
-
-	$result = mysqli_query($con, "SELECT COUNT(*) FROM `rooms`");
-	$data = mysqli_fetch_array($result);
-	$numRows = $data[0];
-
-	for ($i = 0; $i <= $numRows; $i++) {
-		$query = "SELECT * FROM `rooms` WHERE `id` = $i";
-		$result = mysqli_query($con, $query);
-		$data = mysqli_fetch_array($result);
-		$printNickname = $data['nick'];
+	// Catching it if something went wrong.
+	catch(PDOException $e) {
+		echo $e->getMessage();
 	}
 
-	mysqli_close($con);
 ?>
