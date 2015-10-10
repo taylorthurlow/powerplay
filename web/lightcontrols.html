@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>powerplay</title>
+		<title>powerplay - light controls</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/style.css">
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -15,6 +15,8 @@
 
 		<link href="/css/style.css" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="/jquery.js"></script>
+
 	</head>
 
 	<body>
@@ -23,24 +25,24 @@
 
 			<div class="header row">
 				<div class="col-md-12 center-block">
-					<h2 class="text-center">powerplay</h2>
+					<h2 class="text-center">light controls</h2>
 				</div>
 			</div>
 
 			<div class="main row">
 				<div class="col-md-offset-1 col-md-10" style="margin-bottom: 25px">
-					<p class="text-center">Welcome to PowerPlay. Pick an option to get started.</p>
+					<p>Please select a room. This will list the room's attached devices, and any control options those devices may have.</p>
 				</div>
 
-				<div class="col-md-6 stacked">
-					<a href="lightcontrols.html" class="btn btn-primary center-block">light controls</a>
+				<div class="room-list">
+					<div id="rooms-output">
+
+					</div>
+					<div class="col-md-6 stacked">
+						<a href="#" class="btn btn-primary center-block">room 1</a>
+					</div>
 				</div>
-				<div class="col-md-6 stacked">
-					<a href="powerusage.html" class="btn btn-primary center-block">power usage</a>
-				</div>
-				<div class="col-md-6 stacked">
-					<a href="settings.html" class="btn btn-primary center-block">settings</a>
-				</div>
+
 			</div>
 
 			<div class="footer row">
@@ -50,6 +52,28 @@
 			</div>
 
 		</div>
+
+		<script type="text/javascript">
+			$(function() {
+				$.ajax({
+					url: 'api.php',					//the script to call to get data
+					data: "",						//you can insert url argumnets here to pass to api.php
+													//for example "id=5&parent=6"
+					dataType: 'json',				//data format
+					success: function(data) {		//on recieve of reply
+						alert('success');
+						//var id = data[0];			//get id
+						var nickname = data[1];		//get name
+						$('#rooms-output').html("<div class='col-md-6 stacked'>" + nickname + "</div>");
+					},
+					fail: function(data) {
+						alert('failed');
+						alert(data);
+					}
+				});
+			});
+
+		</script>
 
 	</body>
 
