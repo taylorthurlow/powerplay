@@ -48,18 +48,16 @@
 				</div>
 			</div>
 
-			<button id="test">test</button>
-
 		</div>
 
 		<script type="text/javascript">
-			$("#test").click(function() {
+			$(document).ready(function() {
 				$.ajax({
 					url: "api.php",
 					async: true,
 					dataType: 'text',
 					success: function(data) {
-						document.write(data);
+						$('#rooms-output').html(data);
 					}
 				});
 			});
