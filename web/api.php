@@ -14,8 +14,6 @@
 		$result = mysqli_query($con, $query);
 		$data = mysqli_fetch_array($result);
 		$printNickname = $data['nick'];
-		$_POST['nick'] = $printNickname;
-		echo $_POST['nick'];
 	}
 
 	mysqli_close($con);
