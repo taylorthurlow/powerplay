@@ -35,11 +35,8 @@
 				</div>
 
 				<div class="room-list">
-					<div id="rooms-output">
-
-					</div>
-					<div class="col-md-6 stacked">
-						<a href="#" class="btn btn-primary center-block">room 1</a>
+					<div id="rooms-output" style="height: 100px">
+						placeholder
 					</div>
 				</div>
 
@@ -54,25 +51,19 @@
 		</div>
 
 		<script type="text/javascript">
-			$(function() {
+			$(document).ready(function(){
+				$('#rooms-output').html("<div class='col-md-6 stacked'><a href='#' class='btn btn-primary center-block'>" + "<p>lolol</p>" + "</a></div>");
 				$.ajax({
-					url: 'api.php',					//the script to call to get data
-					data: "",						//you can insert url argumnets here to pass to api.php
-													//for example "id=5&parent=6"
-					dataType: 'json',				//data format
-					success: function(data) {		//on recieve of reply
-						alert('success');
-						//var id = data[0];			//get id
-						var nickname = data[1];		//get name
-						$('#rooms-output').html("<div class='col-md-6 stacked'>" + nickname + "</div>");
-					},
-					fail: function(data) {
-						alert('failed');
+					url: 'api.php',
+					type: 'POST',
+					data: {nick: nickname},
+					dataType: 'text',
+					success: function(data) {
 						alert(data);
+						$('#rooms-output').html("<div class='col-md-6 stacked'><a href='#' class='btn btn-primary center-block'>" + "<p>HELLO WORLD</p>" + "</a></div>");
 					}
 				});
 			});
-
 		</script>
 
 	</body>
