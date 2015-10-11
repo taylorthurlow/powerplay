@@ -11,7 +11,7 @@
 		$sql = "SELECT * FROM `devices` WHERE `id`=$deviceId";
 		$result = $connection->query($sql);
 		foreach($result as $row) {
-			if($row['powered'] == 1) {
+			if(ord($row['powered']) == 1) {
 				echo 'true';
 			} else {
 				echo 'false';

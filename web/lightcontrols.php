@@ -82,7 +82,6 @@
 					data: {id: deviceId},
 					dataType: 'text',
 					success: function(data) {
-						alert(data);
 						if(data == "true") {
 							return true;
 						} else if (data == "false") {
