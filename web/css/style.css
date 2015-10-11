@@ -38,3 +38,10 @@
 #rooms-output a {
 	align-content: center;
 }
+
+.logo {
+    background-image: url('/img/logo2small.png');
+    background-repeat: no-repeat;
+    height: 66px;
+    
+}
