@@ -94,8 +94,11 @@
 			}
 
 			function toggleDevice(deviceId) {
-				//todo
-				alert('toggleDevice()');
+				if (getPoweredState(deviceId) == true) {
+					//send disable to device
+				} else {
+					//send enable to device
+				}
 			}
 		</script>
 
