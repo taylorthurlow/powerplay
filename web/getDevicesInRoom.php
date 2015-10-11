@@ -13,7 +13,9 @@
 		foreach($result as $row) {
 			echo "<div class='col-md-6 stacked'><div class='well center-block device-well'><div class='row'><div class='col-md-8'><p>";
 			echo $row['type'];
-			echo "</p></div><div class='col-md-2 device-well-1'>60W</div><div class='col-md-2 device-well-2'><a href='#' class='btn btn-primary'>ON/OFF</a></div></div></div></div>";
+			echo "</p></div><div class='col-md-2 device-well-1'>60W</div><div class='col-md-2 device-well-2'><a class='btn btn-primary' onClick='toggleDevice(";
+			echo $row['id'];
+			echo ")'>ON/OFF</a></div></div></div></div>";
 		}
 		$connection = null;
 	}

@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<title>powerplay - light controls</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="/style.css">
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -73,6 +72,30 @@
 						$('#devices-output').show();
 					}
 				});
+			}
+
+			function getPoweredState(deviceId) {
+				$.ajax({
+					url: "getPoweredState.php",
+					type: 'POST',
+					async: true,
+					data: {id: deviceId},
+					dataType: 'text',
+					success: function(data) {
+						alert(data);
+						if(data == "true") {
+							return true;
+						} else if (data == "false") {
+							return false;
+						}
+					}
+				});
+				return null;
+			}
+
+			function toggleDevice(deviceId) {
+				//todo
+				alert('toggleDevice()');
 			}
 		</script>
 

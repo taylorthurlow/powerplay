@@ -45,7 +45,7 @@ wsServer.on('request', function(request) {
 			console.log('Received Message: ' + message.utf8Data);
 			//connection.sendUTF(message.utf8Data);
 			//connection.send('@A');
-
+			/**
 			counter++;
 			if (counter % 2 === 0) {
 				state = !state;
@@ -57,6 +57,7 @@ wsServer.on('request', function(request) {
 				connection.send('@B');
 				console.log("Sent @B.");
 			}
+			**/
 		}
 		else if (message.type === 'binary') {
 			console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
