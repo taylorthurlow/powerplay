@@ -23,7 +23,8 @@
 		<div class="content container">
 
 			<div class="header row">
-				<div class="col-md-12 center-block">
+                <div class="col-md-2 logo"></div>
+				<div class="col-md-10 center-block">
 					<h2 class="text-center">room names</h2>
 				</div>
 			</div>
