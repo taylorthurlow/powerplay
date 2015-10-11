@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>PowerPlay- Settings</title>
+		<title>PowerPlay- Room Names</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/style.css">
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -15,6 +15,7 @@
 
 		<link href="/css/style.css" rel="stylesheet">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="/jquery.js"></script>
 	</head>
 
 	<body>
@@ -23,24 +24,16 @@
 
 			<div class="header row">
 				<div class="col-md-12 center-block">
-					<h2 class="text-center">settings</h2>
+					<h2 class="text-center">room names</h2>
 				</div>
 			</div>
 
 			<div class="main row">
 				<div class="col-md-offset-1 col-md-10" style="margin-bottom: 25px">
-					<p class="text-center">Please select the type of ...</p>
-				</div>
-
-				<div class="col-md-6 stacked">
-					<a href="settingsRoomname.html" class="btn btn-primary center-block">change room names</a>
-				</div>
-				<div class="col-md-6 stacked">
-					<a href="powerusage.html" class="btn btn-primary center-block">set power usage</a>
-				</div>
-				<div class="col-md-6 stacked">
-					<a href="settings.html" class="btn btn-primary center-block">*add here*</a>
-				</div>
+					<p class="text-center">Click on a room to change its name.</p>
+                    <div class="room-list row">
+				<div id="rooms-output" class="col-md-12 center-                     block">
+                </div>
 			</div>
 
 			<div class="footer row">
@@ -50,6 +43,18 @@
 			</div>
 
 		</div>
+        <script type="text/javascript">
+			$(document).ready(function() {
+				$.ajax({
+					url: "api.php",
+					async: true,
+					dataType: 'text',
+					success: function(data) {
+						$('#rooms-output').html(data);
+					}
+				});
+			});
+		</script>
 
 	</body>
 
