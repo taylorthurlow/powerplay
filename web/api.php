@@ -16,8 +16,10 @@
 
 		// Iterating over the data and printing it.
 		foreach($result as $row) {
-			echo "<div class='col-md-6 center-block'>";
-			echo "<a href='#' class='btn btn-primary stacked'>";
+			echo "<div class='col-md-6 stacked'>";
+			echo "<a href='#' onClick='displayDevices(";
+			echo $row['id'];
+			echo ")' class='btn btn-primary center-block'>";
 			echo $row['nickname'];
 			echo "</a>";
 			echo "</div>";

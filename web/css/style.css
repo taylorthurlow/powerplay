@@ -19,7 +19,11 @@
 	margin: 0
 }
 
-
+.device-well p {
+	font-size: 18px;
+	font-weight: bold;
+	vertical-align: middle;
+}
 
 #rooms-output a {
 	align-content: center;

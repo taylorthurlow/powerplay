@@ -31,14 +31,13 @@
 
 			<div class="main row">
 				<div class="col-md-12 center-block" style="margin-bottom: 25px">
-					<p>Please select a room. This will list the room's attached devices, and any control options those devices may have.</p>
+					<p class="text-center">Please select a room. This will list the room's attached devices, and any control options those devices may have.</p>
 				</div>
 			</div>
 
 			<div class="room-list row">
-				<div id="rooms-output" class="col-md-12 center-block">
-
-				</div>
+				<div id="rooms-output" class="col-md-12 center-block"></div>
+				<div id="devices-output" class="col-md-12 center-block"></div>
 			</div>
 
 			<div class="footer row">
@@ -60,6 +59,21 @@
 					}
 				});
 			});
+
+			function displayDevices(roomId) {
+				$.ajax({
+					url: "getDevicesInRoom.php",
+					type: 'POST',
+					async: true,
+					data: {id: roomId},
+					dataType: 'text',
+					success: function(data) {
+						$('#rooms-output').hide();
+						$('#devices-output').html(data);
+						$('#devices-output').show();
+					}
+				});
+			}
 		</script>
 
 	</body>
