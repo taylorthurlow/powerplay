@@ -83,6 +83,7 @@
 					data: {id: deviceId},
 					dataType: 'text',
 					success: function(data) {
+						alert(data);
 						if(data == "true") {
 							return true;
 						} else if (data == "false") {
@@ -100,6 +101,32 @@
 					//send enable to device
 				}
 			}
+
+			$(function () {
+				// if user is running mozilla then use it's built-in WebSocket
+				window.WebSocket = window.WebSocket || window.MozWebSocket;
+
+				var connection = new WebSocket('ws://127.0.0.1:8080');
+
+				connection.onopen = function () {
+					// connection is opened and ready to use
+					connection.send('hello world');
+				};
+
+				connection.onerror = function (error) {
+					// an error occurred when sending/receiving data
+				};
+
+				connection.onmessage = function (message) {
+					// handle incoming message
+					if (message.type === 'utf8') {
+						alert('client recieved message');
+						connection.send('pong (client -> server)');
+					}
+				};
+
+
+			});
 		</script>
 
 	</body>
