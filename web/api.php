@@ -16,7 +16,11 @@
 
 		// Iterating over the data and printing it.
 		foreach($result as $row) {
-		  echo $row['id']. ' - '. $row['nickname']. ' - '. $row['owner']. '<br />';
+			echo "<div class='col-md-6 center-block'>";
+			echo "<a href='#' class='btn btn-primary stacked'>";
+			echo $row['nickname'];
+			echo "</a>";
+			echo "</div>";
 		}
 		// Closing the connection.
 		$connection = null;

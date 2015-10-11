@@ -30,16 +30,15 @@
 			</div>
 
 			<div class="main row">
-				<div class="col-md-offset-1 col-md-10" style="margin-bottom: 25px">
+				<div class="col-md-12 center-block" style="margin-bottom: 25px">
 					<p>Please select a room. This will list the room's attached devices, and any control options those devices may have.</p>
 				</div>
+			</div>
 
-				<div class="room-list">
-					<div id="rooms-output" style="height: 100px">
+			<div class="room-list row">
+				<div id="rooms-output" class="col-md-12 center-block">
 
-					</div>
 				</div>
-
 			</div>
 
 			<div class="footer row">
