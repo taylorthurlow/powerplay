@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>PowerPlay- Settings</title>
+		<title>powerplay - settings</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="/style.css">
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -13,20 +13,19 @@
 			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-		<link href="/css/style.css" rel="stylesheet">
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/css/style.css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
 	</head>
 
 	<body>
 
 		<div class="content container">
 
-			<div class="header row">
-                <div class="col-md-2 logo"></div>
-				<div class="col-md-10 center-block">
-					<h2 class="text-center">settings</h2>
-				</div>
-			</div>
+			<?php
+			   $path = $_SERVER['DOCUMENT_ROOT'];
+			   $path .= "/includes/header.php";
+			   include_once($path);
+			?>
 
 			<div class="main row">
 				<div class="col-md-offset-1 col-md-10" style="margin-bottom: 25px">
@@ -44,11 +43,11 @@
 				</div>
 			</div>
 
-			<div class="footer row">
-				<div class="col-md-12 center-block">
-					<p class="text-center">powerplay &copy;2015 taylor thurlow, stoyan shukerov, kyle nahas, tim chan - produced at calhacks 2015</p>
-				</div>
-			</div>
+			<?php
+			   $path = $_SERVER['DOCUMENT_ROOT'];
+			   $path .= "/includes/footer.php";
+			   include_once($path);
+			?>
 
 		</div>
 

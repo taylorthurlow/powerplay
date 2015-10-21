@@ -5,7 +5,7 @@ var server = http.createServer(function(request, response) {
 	// process HTTP request. Since we're writing just WebSockets server
 	// we don't have to implement anything.
 });
-server.listen(8080, function() { });
+server.listen(8081, function() { });
 
 // create the server
 wsServer = new WebSocketServer({
@@ -14,22 +14,18 @@ wsServer = new WebSocketServer({
 
 // WebSocket server
 wsServer.on('request', function(request) {
-	var connection = request.accept(null, request.origin);
+	var con = request.accept(null, request.origin);
+	console.log((new Date()) + " - Connection accepted.");
 
-
-
-	// This is the most important callback for us, we'll handle
-	// all messages from users here.
-	connection.on('message', function(message) {
-		console.log('message receieved');
+	// Messages received from webpage
+	con.on('message', function(message) {
+		console.log('Message received.');
 		if (message.type === 'utf8') {
-			console.log('test');
-			connection.sendUTF('ping (server -> client)');
 			console.log(message);
 		}
 	});
 
-	connection.on('close', function(connection) {
+	con.on('close', function(connection) {
 		// close user connection
 	});
 });

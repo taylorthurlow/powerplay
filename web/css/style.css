@@ -40,8 +40,13 @@
 }
 
 .logo {
-    background-image: url('/img/logo2small.png');
-    background-repeat: no-repeat;
-    height: 66px;
-    
+	background-image: url('/img/logo2small.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 66px;
+	margin-top: 10px;
+}
+
+.logo:hover {
+	cursor: pointer;
 }

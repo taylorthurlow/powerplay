@@ -13,19 +13,18 @@
 		<![endif]-->
 
 		<link rel="stylesheet" href="/css/style.css">
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
 	</head>
 
 	<body>
 
 		<div class="content container">
 
-			<div class="header row">
-                <div class="col-md-2 logo"></div>
-				<div class="col-md-10 center-block">
-					<h2 class="text-center">powerplay</h2>
-				</div>
-			</div>
+			<?php
+			   $path = $_SERVER['DOCUMENT_ROOT'];
+			   $path .= "/includes/header.php";
+			   include_once($path);
+			?>
 
 			<div class="main row">
 				<div class="col-md-offset-1 col-md-10" style="margin-bottom: 25px">
@@ -33,23 +32,21 @@
 				</div>
 
 				<div class="col-md-6 stacked">
-					<a href="lightcontrols.php" class="btn btn-primary center-block">light controls</a>
+					<a href="deviceControls.php" class="btn btn-primary center-block">light controls</a>
 				</div>
 				<div class="col-md-6 stacked">
-					<a href="powerusage.html" class="btn btn-primary center-block">power usage</a>
+					<a href="powerUsage.php" class="btn btn-primary center-block">power usage</a>
 				</div>
 				<div class="col-md-6 stacked">
-					<a href="settings.html" class="btn btn-primary center-block">settings</a>
-				</div>
-
-				<div id="output"></div>
-			</div>
-
-			<div class="footer row">
-				<div class="col-md-12 center-block">
-					<p class="text-center">powerplay &copy;2015 taylor thurlow, stoyan shukerov, kyle nahas, tim chan - produced at calhacks 2015</p>
+					<a href="settings.php" class="btn btn-primary center-block">settings</a>
 				</div>
 			</div>
+
+			<?php
+			   $path = $_SERVER['DOCUMENT_ROOT'];
+			   $path .= "/includes/footer.php";
+			   include_once($path);
+			?>
 
 		</div>
 
